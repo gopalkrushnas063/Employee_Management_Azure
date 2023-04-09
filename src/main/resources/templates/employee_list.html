@@ -1,387 +1,319 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<!-- Designined by CodingLab | www.youtube.com/codinglabyt -->
+<html lang="en" xmlns:th="http://www.thymeleaf.org" dir="ltr">
 <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!--<title> Responsiive Admin Dashboard | CodingLab </title>-->
+    <link rel="stylesheet" href="/style/styel.css" />
+    <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+            integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+    />
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
     <style>
-        html,
         body {
+            background: #cacaca;
             margin: 0;
-            height: 100vh;
-            width: 100vw;
-            overflow: hidden;
+            /*padding: 20px;*/
+            font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue",
+            Helvetica, Arial, "Lucida Grande", sans-serif;
+            font-weight: 300;
         }
 
-        body {
-            font-family: "Roboto", sans-serif;
-            background-image: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        #table {
+            display: table;
+            width: 80%;
+            background: #fff;
+            margin: auto;
+            box-sizing: border-box;
         }
 
-        h1 {
-            margin: 20px 0;
+        .caption {
+            width: 80%;
+            margin: auto;
+            background: #000;
+            height: 55px;
+            padding-left: 10px;
+            color: #fff;
+            font-size: 25px;
+            line-height: 55px;
+            text-shadow: 3px 2px 4px rgb(244, 123, 31);
+            box-sizing: border-box;
+            letter-spacing: 3px;
+        }
+
+        .header-row {
+            background: #f47b1f;
             color: #fff;
         }
-
-        .center {
-            text-align: center;
-        }
-
-        .nav-wrapper {
-            display: flex;
-            position: relative;
-            flex-direction: row;
-            flex-wrap: nowrap;
-            align-items: center;
-            justify-content: space-between;
-            margin: auto;
-            width: 90%;
-            height: 80px;
-            border-radius: 0 0 15px 15px;
-            padding: 0 25px;
-            z-index: 2;
-            background: #fff;
-            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
-        }
-
-        .logo-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .logo {
-            height: 60px;
-        }
-
-        .nav-tabs {
-            display: flex;
-            font-weight: 600;
+        .header-row .cell {
             font-size: 18px;
-            list-style: none;
+        }
+        .header-row .cell a {
+            color: #fff;
+            text-decoration: none;
+            font-family: monospace;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+        .row {
+            display: table-row;
         }
 
-        .nav-tab:not(:last-child) {
-            padding: 10px 25px;
-            margin: 0;
-            border-right: 1px solid #eee;
+        .cell {
+            display: table-cell;
+            font-size: 15px;
+            padding: 10px 5px 10px 12px;
+            border: 1px solid #e5e5e5;
+            text-align: left;
+            font-family: monospace;
         }
 
-        .nav-tab:last-child {
-            padding: 10px 0 0 25px;
+        .primary {
+            text-align: left;
         }
 
-        .nav-tab,
-        .menu-btn {
-            cursor: pointer;
-        }
-
-        .hidden {
+        input[type="radio"],
+        input[type="checkbox"] {
             display: none;
         }
+        span.cell:last-child {
+            text-align: center;
+        }
+        span.cell a i.fa {
+            line-height: 22px;
+        }
 
-        @media screen and (max-width: 800px) {
-            .nav-container {
-                position: fixed;
-                display: none;
-                overflow-y: auto;
-                z-index: -1;
-                top: 0;
-                right: 0;
-                width: 280px;
-                height: 100%;
-                background: #fff;
-                box-shadow: -1px 0 2px rgba(0, 0, 0, 0.2);
+        @media only screen and (max-width: 991px) {
+            body {
+                padding: 0;
             }
 
-            .nav-tabs {
-                flex-direction: column;
-                align-items: flex-end;
-                margin-top: 80px;
-                width: 100%;
+            #table {
+                margin: auto;
+                /*margin-top: 50px;*/
+
             }
 
-            .nav-tab:not(:last-child) {
-                padding: 20px 25px;
-                margin: 0;
-                border-right: unset;
-                border-bottom: 1px solid #f5f5f5;
+            .caption {
+                top: 58px;
+                text-align: center;
+                height: 44px;
+                line-height: 44px;
+                z-index: 5;
+                border-bottom: 2px solid #999;
             }
 
-            .nav-tab:last-child {
-                padding: 15px 25px;
-            }
-
-            .menu-btn {
+            .row {
                 position: relative;
                 display: block;
-                margin: 0;
-                width: 20px;
-                height: 15px;
-                cursor: pointer;
-                z-index: 2;
-                padding: 10px;
-                border-radius: 10px;
+                border-bottom: 1px solid #ccc;
             }
 
-            .menu-btn .menu {
+            .header-row {
+                display: none;
+            }
+
+            .cell {
                 display: block;
-                width: 100%;
-                height: 2px;
-                border-radius: 2px;
-                background: #111;
+
+                border: none;
+                position: relative;
+                height: 45px;
+                line-height: 45px;
+                text-align: left;
+                background: #f58721;
+            }
+            .cell.primary {
+                color: #fff;
+                font-size: 19px;
+                font-weight: 500;
+                letter-spacing: 1px;
+            }
+            .primary:after {
+                content: "";
+                display: block;
+                position: absolute;
+                right: 20px;
+                top: 24px;
+                z-index: 2;
+                width: 0;
+                height: 0;
+                border-top: 10px solid transparent;
+                border-bottom: 10px solid transparent;
+                border-right: 10px solid #ccc;
+            }
+            span.cell:last-child {
+                text-align: left;
+            }
+            span.cell:last-child img {
+                top: 7px;
+                position: relative;
+            }
+            .cell:nth-of-type(n + 2) {
+                display: none;
             }
 
-            .menu-btn .menu:nth-child(2) {
-                margin-top: 4px;
-                opacity: 1;
-            }
-
-            .menu-btn .menu:nth-child(3) {
-                margin-top: 4px;
-            }
-
-            #menuToggle:checked + .menu-btn .menu {
-                transition: transform 0.2s ease;
-            }
-
-            #menuToggle:checked + .menu-btn .menu:nth-child(1) {
-                transform: translate3d(0, 6px, 0) rotate(45deg);
-            }
-
-            #menuToggle:checked + .menu-btn .menu:nth-child(2) {
-                transform: rotate(-45deg) translate3d(-5.71429px, -6px, 0);
+            input[type="radio"],
+            input[type="checkbox"] {
+                display: block;
+                position: absolute;
+                z-index: 1;
+                width: 99%;
+                height: 100%;
                 opacity: 0;
             }
 
-            #menuToggle:checked + .menu-btn .menu:nth-child(3) {
-                transform: translate3d(0, -6px, 0) rotate(-45deg);
+            input[type="radio"]:checked,
+            input[type="checkbox"]:checked {
+                z-index: -1;
             }
 
-            #menuToggle:checked ~ .nav-container {
-                z-index: 1;
-                display: flex;
-                animation: menu-slide-left 0.3s ease;
-            }
-            @keyframes menu-slide-left {
-                0% {
-                    transform: translateX(200px);
-                }
-                to {
-                    transform: translateX(0);
-                }
-            }
-        }
-
-        #heading{
-            font-size: 30px;
-            font-weight: bold;
-            color: white;
-        }
-        table {
-            border: 1px solid #ccc;
-            border-collapse: collapse;
-            margin: 0;
-            padding: 0;
-            width: 100%;
-            table-layout: fixed;
-        }
-
-        table caption {
-            font-size: 1.5em;
-            margin: .5em 0 .75em;
-        }
-
-        table tr {
-            background-color: #f8f8f8;
-            border: 1px solid #ddd;
-            padding: .35em;
-        }
-
-        table th,
-        table td {
-            padding: .625em;
-            text-align: center;
-        }
-
-        table th {
-            font-size: .85em;
-            letter-spacing: .1em;
-            text-transform: uppercase;
-        }
-
-        @media screen and (max-width: 600px) {
-            table {
-                border: 0;
-            }
-
-            table caption {
-                font-size: 1.3em;
-            }
-
-            table thead {
-                border: none;
-                clip: rect(0 0 0 0);
-                height: 1px;
-                margin: -1px;
-                overflow: hidden;
-                padding: 0;
-                position: absolute;
-                width: 1px;
-            }
-
-            table tr {
-                border-bottom: 3px solid #ddd;
+            input[type="radio"]:checked ~ .cell,
+            input[type="checkbox"]:checked ~ .cell {
                 display: block;
-                margin-bottom: .625em;
+
+                border-bottom: 1px solid #eee;
             }
 
-            table td {
-                border-bottom: 1px solid #ddd;
-                display: block;
-                font-size: .8em;
-                text-align: right;
+            input[type="radio"]:checked ~ .cell:nth-of-type(n + 2),
+            input[type="checkbox"]:checked ~ .cell:nth-of-type(n + 2) {
+                background: #e0e0e0;
             }
 
-            table td::before {
-                /*
-                * aria-label has no advantage, it won't be read inside a table
-                content: attr(aria-label);
-                */
+            input[type="radio"]:checked ~ .cell:nth-of-type(n + 2):before,
+            input[type="checkbox"]:checked ~ .cell:nth-of-type(n + 2):before {
                 content: attr(data-label);
-                float: left;
-                font-weight: bold;
-                text-transform: uppercase;
+
+                display: inline-block;
+                width: 60px;
+                background: #999;
+                border-radius: 10px;
+                height: 20px;
+                margin-right: 10px;
+                font-size: 12px;
+                line-height: 20px;
+                text-align: center;
+                color: white;
             }
 
-            table td:last-child {
-                border-bottom: 0;
+            input[type="radio"]:checked ~ .primary,
+            input[type="checkbox"]:checked ~ .primary {
+                border-bottom: 2px solid #999;
+            }
+
+            input[type="radio"]:checked ~ .primary:after,
+            input[type="checkbox"]:checked ~ .primary:after {
+                position: absolute;
+                right: 18px;
+                top: 30px;
+                border-right: 10px solid transparent;
+                border-left: 10px solid transparent;
+                border-top: 10px solid #ccc;
+                z-index: 2;
             }
         }
 
-        #action_btn{
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 20px;
-        }
-
-        #action_btn1{
-            background-color: rgb(73, 214, 242);
-            border: 1px solid gray;
-            width: 50%;
-            height: 30px;
-            border-radius: 5px;
-            cursor: pointer;
-            text-align: center;
-        }
-
-        #action_btn2{
-            background-color: rgb(221, 82, 64);
-            border: 1px solid gray;
-            width: 50%;
-            height: 30px;
-            border-radius: 5px;
-            cursor: pointer;
-            text-align: center;
-        }
     </style>
 </head>
-<body>
-<table>
-
-    <header>
-        <div class="nav-wrapper">
-            <div class="logo-container">
-                <img class="logo" src="https://gopalkrushna.me/images/title_logo.png" alt="Logo">
-            </div>
-            <nav>
-                <input class="hidden" type="checkbox" id="menuToggle">
-                <label class="menu-btn" for="menuToggle">
-                    <div class="menu"></div>
-                    <div class="menu"></div>
-                    <div class="menu"></div>
-                </label>
-                <div class="nav-container">
-                    <ul class="nav-tabs">
-                        <li class="nav-tab"><a th:href="@{/}">Home</a></li>
-                        <li class="nav-tab"><a th:href="@{/employee_list}">Employee List</a></li>
-                        <li class="nav-tab"><a th:href = "@{/showNewEmployeeForm}">Register</a> </li>
-                        <li class="nav-tab">Contact</li>
-                    </ul>
-                </div>
-            </nav>
-        </div>
-    </header>
-    <caption id="heading">
-        Employee Records
-    </caption>
-    <thead>
-    <tr>
-        <th scope="col">
-            <a th:href="@{'/page/' + ${currentPage} + '?sortField=firstName&sortDir=' + ${reverseSortDir}}">
-                Employee ID</a>
-        </th>
-        <th scope="col">
-            <a th:href="@{'/page/' + ${currentPage} + '?sortField=name&sortDir=' + ${reverseSortDir}}">
-                Employee Name</a>
-        </th>
-        <th scope="col">
-            <a th:href="@{'/page/' + ${currentPage} + '?sortField=email&sortDir=' + ${reverseSortDir}}">
-                Employee Email</a>
-        </th>
-        <th scope="col">
-            <a th:href="@{'/page/' + ${currentPage} + '?sortField=mobile&sortDir=' + ${reverseSortDir}}">
-                Employee Mobile</a>
-        </th>
-        <th scope="col">
-            <a th:href="@{'/page/' + ${currentPage} + '?sortField=address&sortDir=' + ${reverseSortDir}}">
-                Employee Address</a>
-        </th>
-        <th scope="col">
-            <a th:href="@{'/page/' + ${currentPage} + '?sortField=salary&sortDir=' + ${reverseSortDir}}">
-                Employee Salary</a>
-        </th>
-        <th scope="col">Action</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr th:each="employee : ${listEmployees}">
-        <td data-label="Employee ID" th:text="${employee.id}"></td>
-        <td data-label="Name" th:text="${employee.name}"></td>
-        <td data-label="Email" th:text="${employee.email}"></td>
-        <td data-label="Mobile" th:text="${employee.mobile}"></td>
-        <td data-label="Address" th:text="${employee.address}"></td>
-        <td data-label="Salary" th:text="${employee.salary}"></td>
-        <td id="action_btn"> <a id="action_btn1" th:href="@{/showFormForUpdate/{id}(id=${employee.id})}" class="btn btn-primary">Update</a>
-            <a id="action_btn2" th:href="@{/deleteEmployee/{id}(id=${employee.id})}" class="btn btn-danger">Delete</a>
-        </td>
-    </tr>
-    </tbody>
-</table>
-
-<div th:if = "${totalPages > 1}">
-    <div class = "row col-sm-10">
-        <div class = "col-sm-2">
-            Total Rows: [[${totalItems}]]
-        </div>
-        <div class = "col-sm-1">
-                        <span th:each="i: ${#numbers.sequence(1, totalPages)}">
-                            <a th:if="${currentPage != i}" th:href="@{'/page/' + ${i}+ '?sortField=' + ${sortField} + '&sortDir=' + ${sortDir}}">[[${i}]]</a>
-                            <span th:unless="${currentPage != i}">[[${i}]]</span>  &nbsp; &nbsp;
-                        </span>
-        </div>
-        <div class = "col-sm-1">
-            <a th:if="${currentPage < totalPages}" th:href="@{'/page/' + ${currentPage + 1}+ '?sortField=' + ${sortField} + '&sortDir=' + ${sortDir}}">Next</a>
-            <span th:unless="${currentPage < totalPages}">Next</span>
-        </div>
-
-        <div class="col-sm-1">
-            <a th:if="${currentPage < totalPages}" th:href="@{'/page/' + ${totalPages}+ '?sortField=' + ${sortField} + '&sortDir=' + ${sortDir}}">Last</a>
-            <span th:unless="${currentPage < totalPages}">Last</span>
-        </div>
+<body class="skin-blue-black">
+<header>
+    <div class="toggle">
+        <i class="fas fa-bars"></i>
     </div>
+    <h3>Dashboard</h3>
+    <a href="#">
+        <i class="fas fa-sign-out-alt"></i>
+    </a>
+</header>
+<nav>
+    <ul>
+        <li>
+            <a class="toggle">
+                <span class="icon"><i class="fas fa-bars"></i></span>
+                <span class="title">Menu</span>
+            </a>
+        </li>
+        <li>
+            <a th:href="@{/}">
+                <span class="icon"><i class="fas fa-home"></i></span>
+                <span class="title">Home</span>
+            </a>
+        </li>
+        <li>
+            <a th:href="@{/employee_list}">
+                <span class="icon"><i class="fas fa-user"></i></span>
+                <span class="title">Profile</span>
+            </a>
+        </li>
+        <li>
+            <a th:href = "@{/showNewEmployeeForm}">
+                <span class="icon"><i class="fas fa-envelope"></i></span>
+                <span class="title">Register New Employee</span>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <span class="icon"><i class="fas fa-info"></i></span>
+                <span class="title">Help</span>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <span class="icon"><i class="fas fa-cog"></i></span>
+                <span class="title">Setting</span>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <span class="icon"><i class="fas fa-lock"></i></span>
+                <span class="title">Password</span>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <span class="icon"><i class="fas fa-sign-out-alt"></i></span>
+                <span class="title">Sign Out</span>
+            </a>
+        </li>
+    </ul>
+</nav>
+
+<div class="caption">Employee Records</div>
+<div id="table">
+    <div class="header-row row">
+        <span class="cell primary"><a href="#">Employee ID<i class="fa fa-fw fa-sort"></i></a></span>
+        <span class="cell"><a href="#">Employee Name<i class="fa fa-fw fa-sort"></i></a></span>
+        <span class="cell"><a href="#">Employee Email<i class="fa fa-fw fa-sort"></i></a></span>
+        <span class="cell"><a href="#">Employee Mobile<i class="fa fa-fw fa-sort"></i></a></span>
+        <span class="cell"><a href="#">Employee Address<i class="fa fa-fw fa-sort"></i></a></span>
+        <span class="cell"><a href="#">Employee Salary</a></span>
+        <span class="cell"><a href="#">Action</a></span>
+
+    </div>
+    <div th:each="employee : ${listEmployees}" class="row">
+        <input type="radio" name="expand">
+        <span class="cell primary" data-label="Employee ID" th:text="${employee.id}">General</span>
+        <span class="cell" data-label="Name" th:text="${employee.name}">Andy Skelton</span>
+        <span class="cell" data-label="Email" th:text="${employee.email}">Widgets Showcase</span>
+        <span class="cell" data-label="Mobile" th:text="${employee.mobile}">WordCamp San Francisco</span>
+        <span class="cell" data-label="Address" th:text="${employee.address}">San Francisco, California</span>
+        <span class="cell" data-label="Salary" th:text="${employee.salary}"></span>
+        <span class="cell" data-label="Action">
+            <a th:href="@{/showFormForUpdate/{id}(id=${employee.id})}">Update</a>
+            <a th:href="@{/deleteEmployee/{id}(id=${employee.id})}">Delete</a>
+        </span>
+    </div>
+
 </div>
+
+
 </body>
 </html>
+
+<script src="/script/script.js"></script>
