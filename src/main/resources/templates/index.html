@@ -46,7 +46,7 @@
                             role="button"
                             data-bs-toggle="dropdown"
                             aria-haspopup="true"
-                            aria-expanded="false"
+                            aria-expanded="true"
                     >
                         <div class="avatar-parent-child">
                             <img
@@ -464,16 +464,18 @@
                                             class="btn btn-sm btn-neutral"
                                     >Update</a
                                     >
-                                    <button
+                                    <a
                                             type="button"
+                                            th:href="@{/deleteEmployee/{id}(id=${employee.id})}"
                                             class="btn btn-sm btn-square btn-neutral text-danger-hover"
                                     >
                                         <i
                                                 class="bi bi-trash"
-                                                th:href="@{/deleteEmployee/{id}(id=${employee.id})}"
+
                                         ></i
                                         >
-                                    </button>
+
+                                    </a>
                                 </td>
                             </tr>
                             </tbody>
