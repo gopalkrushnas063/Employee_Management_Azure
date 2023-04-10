@@ -4,7 +4,6 @@
 <head>
     <meta charset="UTF-8" />
     <!--<title> Responsiive Admin Dashboard | CodingLab </title>-->
-    <link rel="stylesheet" href="/style/styel.css" />
     <link rel="stylesheet" href="/style/regEmp.css">
     <link
             rel="stylesheet"
@@ -16,74 +15,8 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 </head>
-<body class="skin-blue-black">
-<header>
-    <div class="toggle">
-        <i class="fas fa-bars"></i>
-    </div>
-    <h3>Dashboard</h3>
-    <a href="#">
-        <i class="fas fa-sign-out-alt"></i>
-    </a>
-</header>
-<nav>
-    <ul>
-        <li>
-            <a class="toggle">
-                <span class="icon"><i class="fas fa-bars"></i></span>
-                <span class="title">Menu</span>
-            </a>
-        </li>
-        <li>
-            <a th:href="@{/}">
-                <span class="icon"><i class="fas fa-home"></i></span>
-                <span class="title">Home</span>
-            </a>
-        </li>
-        <li>
-            <a th:href="@{/employee_list}">
-                <span class="icon"><i class="fas fa-user"></i></span>
-                <span class="title">Employee Records</span>
-            </a>
-        </li>
-        <li>
-            <a th:href = "@{/showNewEmployeeForm}">
-                <span class="icon"><i class="fas fa-envelope"></i></span>
-                <span class="title">Register New Employee</span>
-            </a>
-        </li>
-        <li>
-            <a href="#">
-                <span class="icon"><i class="fas fa-info"></i></span>
-                <span class="title">Help</span>
-            </a>
-        </li>
-        <li>
-            <a href="#">
-                <span class="icon"><i class="fas fa-cog"></i></span>
-                <span class="title">Setting</span>
-            </a>
-        </li>
-        <li>
-            <a href="#">
-                <span class="icon"><i class="fas fa-lock"></i></span>
-                <span class="title">Password</span>
-            </a>
-        </li>
-        <li>
-            <a href="#">
-                <span class="icon"><i class="fas fa-sign-out-alt"></i></span>
-                <span class="title">Sign Out</span>
-            </a>
-        </li>
-    </ul>
-</nav>
+<body>
 
-
-<br>
-<br>
-<br>
-<br>
 <div class="container">
     <div class="title">Update</div>
     <form action="#" th:action="@{/saveEmployee}" th:object="${employee}"
@@ -145,7 +78,7 @@
             <input type="submit" value="Register" />
         </div>
     </form>
-    <a th:href = "@{/employee_list}"> Back to Employee List</a>
+    <a th:href = "@{/}"> Back to Employee List</a>
 </div>
 </body>
 </html>
